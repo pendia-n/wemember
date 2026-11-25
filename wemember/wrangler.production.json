@@ -1,0 +1,36 @@
+{
+  "name": "wemember",
+  "main": "balagan-worker/index.mjs",
+  "compatibility_date": "2026-11-17",
+  "triggers": {
+    "crons": [
+      "* * * * *"
+    ]
+  },
+  "routes": [
+    {
+      "pattern": "wemember.balagan.live",
+      "custom_domain": true
+    }
+  ],
+  "services": [
+    {
+      "binding": "BALAGAN",
+      "service": "balagan"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "wemember-db",
+      "database_id": "d0102529-29ac-4be3-b3dc-586812cf9471",
+      "migrations_dir": "balagan-worker/migrations"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "wemember-media"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+export const games = {
+ wemember:{name:'Wemember', heading:'Listen once. What stuck?', copy:'Hear one recording and type what you remember. More correct details win. Earlier submissions break ties.', entry:'One free challenge per UTC day, then 15 tokens.', cost:15, recordingMs:5472, colors:['#e8def7','#31224d','#f4c19e'], scenarios:[['The seaside train','Listen for the details.']], reference:'At eight, Mina took a brass key, put on a red hat, and boarded the train to the seaside.'},
+ sorriest:{name:'Sorriest',heading:'The cake is gone. Explain.',copy:'Write an apology for a fictional scandal, handle one follow-up, and vote on the best recovery.',entry:'20 tokens per challenge.',cost:20,colors:['#ffdfe4','#501329','#f8a7b6'],scenarios:[['The missing birthday cake','The last slice vanished before the toast. You are the host.','When did you first notice the cake was gone?'],['The ruined office surprise','You accidentally announced the surprise party in the company chat.','What will you do differently next time?']]},
+ barara:{name:'Barara',heading:'The cookie case is open.',copy:'Put a petty dispute on trial. Read the charge, hear a defence, and vote on the verdict.',entry:'30 tokens per challenge. Court lasts 10 minutes.',cost:30,colors:['#dceee8','#103f39','#eec477'],scenarios:[['The missing cookie','The accused was seen near an empty plate. There is a trail of crumbs.','How do you explain the crumbs?'],['The borrowed umbrella','A yellow umbrella went missing just before it rained.','Who last saw the umbrella?']]}
+};
+export function scoreRecall(answer) {
+ return [/\b(?:eight(?:\s+o.clock)?|0?8(?::00)?)\b/i,/\bmina\b/i,/\bbrass\s+key\b/i,/\bred\s+hat\b/i,/(?=.*\btrain\b)(?=.*\b(seaside|beach|coast)\b)/is].filter(rule=>rule.test(answer)).length;
+}
